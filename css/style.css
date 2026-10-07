@@ -1,0 +1,161 @@
+/* ===== Kuzushi BJJ — shared styles (all pages) ===== */
+:root{
+  --ink:#0F2438;      /* mat navy: text, nav, dark bands */
+  --gi:#F3F5F6;       /* gi white: page background */
+  --blue:#1F5FBF;     /* blue belt: links, primary actions */
+  --purple:#6B3FA0;   /* purple belt */
+  --brown:#7A4A28;    /* brown belt */
+  --gold:#E3B23C;     /* belt stripe: highlights on dark */
+  --tap:#C8262B;      /* tap / black-belt bar red */
+  --line:#cfd8df;
+  --radius:4px;
+  --font-head:'Big Shoulders Display',Impact,'Arial Narrow',sans-serif;
+  --font-body:'Public Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--gi);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,.display{font-family:var(--font-head);font-weight:800;line-height:.98;letter-spacing:-.005em}
+h1{font-size:clamp(3rem,10vw,7.5rem)}
+h2{font-size:clamp(2.2rem,5.5vw,3.75rem)}
+h3{font-size:clamp(1.6rem,3vw,2.1rem)}
+p{max-width:62ch}
+a{color:var(--blue)}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.section{padding:clamp(3rem,8vw,6rem) 0}
+.band-ink{background:var(--ink);color:var(--gi)}
+.band-ink a{color:var(--gold)}
+
+/* ----- Navigation ----- */
+.site-nav{background:var(--ink);padding:.6rem 0;border-bottom:4px solid var(--gold)}
+.navbar-brand{font-family:var(--font-head);font-weight:800;font-size:1.9rem;color:var(--gi)!important;letter-spacing:.02em;display:flex;align-items:center;gap:.6rem}
+.navbar-brand span{color:var(--gold)}
+.navbar-brand::before{content:"";width:34px;height:12px;background:#fff;border:2px solid var(--gi);border-radius:2px;
+  box-shadow:inset -10px 0 0 #111,inset -12px 0 0 var(--gold)}
+.site-nav .nav-link{color:var(--gi);font-weight:600;padding:.5rem 1rem;border-bottom:3px solid transparent}
+.site-nav .nav-link:hover{color:var(--gold)}
+.site-nav .nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+.navbar-toggler{border-color:var(--gi);background:var(--gi)}
+.navbar-toggler:focus{box-shadow:0 0 0 3px var(--gold)}
+@media (max-width:767.98px){.site-nav .nav-link.active{border-bottom-color:transparent;border-left:4px solid var(--gold);padding-left:.6rem}}
+
+/* ----- Buttons ----- */
+.btn-belt{background:var(--blue);color:#fff;border:2px solid var(--blue);border-radius:var(--radius);
+  font-weight:700;padding:.8rem 1.6rem;transition:background .2s,color .2s,border-color .2s}
+.btn-belt:hover,.btn-belt:focus{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:var(--radius);font-weight:700;padding:.8rem 1.6rem}
+.btn-ghost:hover{background:var(--ink);color:var(--gi)}
+.band-ink .btn-belt{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.band-ink .btn-belt:hover{background:var(--gi);border-color:var(--gi);color:var(--ink)}
+
+/* ----- Hero + the belt that ranks up ----- */
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 0}
+.hero .lead{font-size:1.2rem;max-width:44ch;margin:1.5rem 0 2rem}
+.belt-wrap{margin-top:clamp(2.5rem,6vw,4rem);padding-bottom:1rem}
+.belt{position:relative;height:48px;background:#fff;border:3px solid var(--ink);border-left:0;border-right:0;
+  animation:beltColor 8s ease-in-out forwards}
+.belt-bar{position:absolute;right:14%;top:-3px;bottom:-3px;width:96px;background:#111;
+  display:flex;align-items:center;justify-content:flex-end;gap:7px;padding-right:12px;
+  animation:barColor 8s linear forwards}
+.belt-bar i{display:block;width:7px;height:100%;background:var(--gold);}
+.belt-label{font-family:var(--font-head);font-weight:700;font-size:1.5rem;margin:.6rem 0 0;min-height:1.6em}
+@keyframes beltColor{
+  0%,12%{background:#fff} 28%,36%{background:var(--blue)} 48%,56%{background:var(--purple)}
+  66%,74%{background:var(--brown)} 88%,100%{background:#111}}
+@keyframes barColor{0%,86%{background:#111} 100%{background:var(--tap)}}
+@media (prefers-reduced-motion:reduce){
+  .belt{animation:none;background:#111}.belt-bar{animation:none;background:var(--tap)}}
+
+/* ----- Home: three first lessons (Grid) ----- */
+.first-lessons{display:grid;grid-template-columns:1fr;gap:2rem}
+@media (min-width:992px){.first-lessons{grid-template-columns:5fr 7fr;gap:4rem;align-items:start}
+  .first-lessons .sticky{position:sticky;top:2rem}}
+.lesson{border-top:3px solid var(--ink);padding:1.25rem 0 1.75rem;display:grid;grid-template-columns:1fr;gap:.25rem}
+.lesson h3{margin:0;color:var(--blue)}
+@media (min-width:576px){.lesson{grid-template-columns:9rem 1fr;gap:1.5rem}}
+
+/* ----- Home: positions strip (Flexbox) ----- */
+.positions{display:flex;min-height:360px}
+.pos{flex:1;padding:1.75rem 1.25rem;color:#fff;transition:flex .45s ease;display:flex;flex-direction:column;justify-content:flex-end;
+  border-right:2px solid rgba(255,255,255,.18);overflow:hidden;cursor:default}
+.pos:last-child{border-right:0}
+.pos:nth-child(1){background:#0F2438}.pos:nth-child(2){background:#143457}
+.pos:nth-child(3){background:#184682}.pos:nth-child(4){background:#1F5FBF}.pos:nth-child(5){background:#4A3F9A}
+.pos h3{margin:0 0 .5rem;font-size:clamp(1.6rem,2.6vw,2.4rem)}
+.pos p{margin:0;font-size:.95rem;opacity:.95}
+@media (min-width:768px){.pos:hover,.pos:focus{flex:2.4}}
+@media (max-width:767.98px){.positions{flex-direction:column;min-height:0}.pos{border-right:0;border-bottom:2px solid rgba(255,255,255,.18);padding:1.25rem}}
+
+/* ----- Tap rule ----- */
+.tap-rule{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
+.tap-rule h2{margin:0;max-width:16ch}
+
+/* ----- Page header (inner pages) ----- */
+.page-head{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(1.5rem,4vw,2.5rem);border-bottom:3px solid var(--ink)}
+.page-head h1{font-size:clamp(3rem,9vw,6rem);margin:0 0 1rem}
+
+/* ----- Belts page ----- */
+.belt-accordion .accordion-item{background:transparent;border:0;border-top:3px solid var(--ink);border-radius:0}
+.belt-accordion .accordion-item:last-child{border-bottom:3px solid var(--ink)}
+.belt-accordion .accordion-button{background:transparent;color:var(--ink);font-family:var(--font-head);font-weight:800;
+  font-size:clamp(1.7rem,4vw,2.5rem);padding:1.1rem 0;box-shadow:none;gap:1rem}
+.belt-accordion .accordion-button:not(.collapsed){color:var(--blue);background:transparent}
+.belt-accordion .accordion-button:focus{box-shadow:0 0 0 3px var(--gold)}
+.belt-accordion .accordion-button::before{content:"";flex:0 0 72px;height:16px;border:2px solid var(--ink);background:var(--swatch,#fff)}
+.belt-accordion .accordion-body{padding:0 0 1.5rem 0}
+.swatch-white{--swatch:#fff}.swatch-blue{--swatch:var(--blue)}.swatch-purple{--swatch:var(--purple)}
+.swatch-brown{--swatch:var(--brown)}.swatch-black{--swatch:#111}
+.stripes-demo{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.stripes-demo .belt-static{position:relative;width:min(100%,360px);height:34px;background:var(--blue);border:3px solid var(--ink)}
+.stripes-demo .belt-static .belt-bar{animation:none;background:#111;right:10%;width:110px;top:-3px;bottom:-3px}
+.stripes-demo .belt-static .belt-bar i{background:#fff}
+.stripes-demo .belt-static .belt-bar i:nth-child(n+4){display:none}
+
+/* ----- Tables ----- */
+.table-kz{--bs-table-bg:transparent;--bs-table-color:var(--ink);border-color:var(--ink);margin:0}
+.table-kz caption{caption-side:top;font-family:var(--font-head);font-weight:800;font-size:1.8rem;color:var(--ink);padding:0 0 .75rem}
+.table-kz thead th{background:var(--ink);color:var(--gi);font-weight:700;border-color:var(--ink);padding:.8rem 1rem}
+.table-kz tbody th,.table-kz tbody td{padding:.9rem 1rem;vertical-align:top;border-color:var(--line)}
+.table-kz tbody tr:nth-child(even){background:rgba(15,36,56,.05)}
+.dot{display:inline-block;width:.9em;height:.9em;border:2px solid var(--ink);margin-right:.5rem;vertical-align:-.1em}
+
+/* ----- Schedule ----- */
+.tag{display:inline-block;padding:.15rem .55rem;border-radius:2px;font-weight:700;font-size:.85rem;color:#fff;white-space:nowrap}
+.tag-fund{background:var(--blue)}.tag-all{background:var(--ink)}.tag-nogi{background:var(--purple)}
+.tag-open{background:var(--brown)}.tag-kids{background:#B3261E}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin:1rem 0 0;padding:0;list-style:none;font-size:.9rem}
+@media (max-width:767.98px){
+  .schedule thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .schedule,.schedule tbody,.schedule tr,.schedule th,.schedule td{display:block;width:100%}
+  .schedule tbody tr{border-top:3px solid var(--ink);padding:.5rem 0 .75rem;background:transparent!important}
+  .schedule tbody th{font-family:var(--font-head);font-size:1.8rem;padding:.25rem 1rem}
+  .schedule td{display:flex;justify-content:space-between;padding:.35rem 1rem;border:0}
+  .schedule td::before{content:attr(data-label);font-weight:700}
+  .schedule td.off{display:none}
+}
+.coach{display:flex;gap:1.25rem;align-items:flex-start}
+.coach .avatar{flex:0 0 76px;height:76px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;
+  font-family:var(--font-head);font-weight:800;font-size:2rem;border:4px solid var(--gold)}
+.coach h3{margin:0 0 .25rem}
+
+/* ----- Join page / form ----- */
+.join-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+@media (min-width:992px){.join-grid{grid-template-columns:7fr 5fr;gap:4rem}}
+.form-label,legend{font-weight:700}
+legend{font-size:1rem;float:none;padding:0;margin-bottom:.5rem}
+.form-control,.form-select{border:2px solid var(--ink);border-radius:var(--radius);background-color:#fff;padding:.7rem .9rem}
+.form-control:focus,.form-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(227,178,60,.7)}
+.form-check-input{border:2px solid var(--ink)}
+.form-check-input:checked{background-color:var(--blue);border-color:var(--blue)}
+.prices{margin:0;padding:0;list-style:none}
+.prices li{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid rgba(243,245,246,.3)}
+.prices li:last-child{border-bottom:1px solid rgba(243,245,246,.3)}
+.prices strong{font-family:var(--font-head);font-size:1.7rem;color:var(--gold);font-weight:800;line-height:1}
+.price-box{padding:2rem}
+
+/* ----- Footer ----- */
+.site-footer{background:var(--ink);color:var(--gi);padding:3rem 0 1.5rem;border-top:4px solid var(--gold)}
+.site-footer h2{font-size:1.6rem;margin-bottom:.75rem}
+.site-footer a{color:var(--gold)}
+.site-footer ul{list-style:none;padding:0;margin:0}
+.site-footer .credits{font-size:.85rem;opacity:.8;border-top:1px solid rgba(243,245,246,.25);margin-top:2rem;padding-top:1rem}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join | Kuzushi BJJ</title>
+  <meta name="description" content="Book two free Brazilian jiu-jitsu classes and see membership prices.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-md site-nav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">KUZUSHI<span>BJJ</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="belts.html">Belts</a></li><li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li><li class="nav-item"><a class="nav-link active" href="join.html" aria-current="page">Join</a></li></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head">
+  <div class="container">
+    <h1>Book 2 free classes</h1>
+    <p class="mb-0">Tell us a little about you and we will confirm a Fundamentals class by email.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container join-grid">
+    <form id="trialForm" novalidate>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full name</label>
+          <input type="text" class="form-control" id="fullName" name="fullName" required minlength="2" autocomplete="name">
+          <div class="invalid-feedback">Enter your name.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
+          <div class="invalid-feedback">Enter an email like name@example.com.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="startDate" class="form-label">First class date</label>
+          <input type="date" class="form-control" id="startDate" name="startDate" required>
+          <div class="invalid-feedback">Choose a date.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="experience" class="form-label">Experience</label>
+          <select class="form-select" id="experience" name="experience" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>I have never trained</option>
+            <option>Another martial art</option>
+            <option>Less than 1 year of BJJ</option>
+            <option>More than 1 year of BJJ</option>
+          </select>
+          <div class="invalid-feedback">Choose your experience.</div>
+        </div>
+        <div class="col-12">
+          <fieldset>
+            <legend>Which class do you want to try?</legend>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="style" id="styleFund" value="fundamentals" checked><label class="form-check-label" for="styleFund">Fundamentals</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="style" id="styleNogi" value="nogi"><label class="form-check-label" for="styleNogi">No-gi</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="style" id="styleKids" value="kids"><label class="form-check-label" for="styleKids">Kids</label></div>
+          </fieldset>
+        </div>
+        <div class="col-12">
+          <label for="injuries" class="form-label">Injuries or health notes (optional)</label>
+          <textarea class="form-control" id="injuries" name="injuries" rows="3"></textarea>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="waiver" required>
+            <label class="form-check-label" for="waiver">I understand that jiu-jitsu is a contact sport and I train at my own risk.</label>
+            <div class="invalid-feedback">Please confirm to continue.</div>
+          </div>
+        </div>
+        <div class="col-12"><button type="submit" class="btn btn-belt btn-lg">Request my free classes</button></div>
+      </div>
+      <div id="formResult" role="status"></div>
+    </form>
+
+    <aside class="band-ink price-box" aria-labelledby="priceTitle">
+      <h2 id="priceTitle" class="mb-3">After your free classes</h2>
+      <ul class="prices">
+        <li><span>Unlimited adult membership<br><small>per month</small></span><strong>30 000 &#8376;</strong></li>
+        <li><span>Student membership<br><small>per month, with student ID</small></span><strong>22 000 &#8376;</strong></li>
+        <li><span>Kids, 2 classes a week<br><small>per month</small></span><strong>18 000 &#8376;</strong></li>
+        <li><span>Gi uniform<br><small>one time</small></span><strong>25 000 &#8376;</strong></li>
+      </ul>
+      <p class="mt-3 mb-0 small">Prices are sample content for this student project.</p>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <h2>Kuzushi BJJ</h2>
+        <p>A Brazilian jiu-jitsu club for people who have never trained before. Sample content for a student project.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h2>Pages</h2>
+        <ul><li><a href="index.html">Home</a></li><li><a href="belts.html">Belts</a></li><li><a href="classes.html">Classes</a></li><li><a href="join.html">Join</a></li></ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h2>Visit</h2>
+        <address class="mb-0">Mat room, 2nd floor<br>Astana, Kazakhstan<br>Mon to Sat, see <a href="classes.html">schedule</a></address>
+      </div>
+    </div>
+    <p class="credits mb-0">Fonts: Big Shoulders Display and Public Sans (Google Fonts). Layout: Bootstrap 5.3. All artwork is CSS. Belt rules follow IBJJF adult guidelines.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
